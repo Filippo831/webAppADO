@@ -1,0 +1,9 @@
+{
+  "name": "webAppADO",
+  "short_name": "adopwa",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#282828"
+}
