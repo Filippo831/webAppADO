@@ -1,0 +1,20 @@
+--- SCALETTA
+[] autenticazione
+  [] iscrizione
+  [] accesso
+  [] salvataggio utente sui cookies
+  [] privilegi di admin 
+
+[] admin
+  [] possibilità di aggiungere gli eventi
+  [] lista con tutti i partecipanti
+  [] possibilità di assegnare gli utenti ad un gruppo
+
+[] pagina iniziale 
+  [] navbar
+    [] eventi, iscrizione
+    [] collegamenti ad altre applicazioni
+    [] logout
+    /*[] galleria*/
+  [] aggiungi calendario con segnati gli eventi
+
