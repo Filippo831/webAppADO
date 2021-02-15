@@ -1,14 +1,16 @@
 import '../styles/globals.css'
 import Header from './components/main/head'
+import {AuthProvider} from "../firebase/firebaseAuth"
+import firebase from "firebase"
 
 function MyApp({Component, pageProps}) {
 
 
   return (
     <div>
-      <Header></Header>
-      <Component {...pageProps} />
-
+      <AuthProvider>
+        <Component {...pageProps} />
+      </AuthProvider>
     </div>
   )
 }
