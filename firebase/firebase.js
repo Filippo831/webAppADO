@@ -1,4 +1,4 @@
-import firebase from "firebase"
+import firebase from "firebase/app"
 import {createContext} from "react"
 import "firebase/auth"
 
@@ -17,7 +17,6 @@ export default function FirebaseClientProvider(props) {
 
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig)
-    return firebase
   }
   return(
     <FirebaseContext.Provider value={firebase}>

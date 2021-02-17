@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css'
 import {useEffect} from "react"
 
 export default function Home() {
+   console.log("ciao")
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js')
@@ -38,7 +39,7 @@ export default function Home() {
   }
   return (
     <div>
-      <button onClick={sendNotification}>clicca</button>
+      <h1>ciao come va</h1>
     </div>
   )
 }

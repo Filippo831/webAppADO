@@ -1,13 +1,13 @@
 import { TextField } from "@material-ui/core"
 import {useContext, useState} from "react"
 import firebaseClient from "../firebase/firebase"
-import {FirebaseContext} from "../firebase/firebase"
 import {Input, Button} from "@chakra-ui/react"
+import {setCookie} from 'nookies';
+import firebase from "firebase/app"
 
 export default function SingIn(){
   const [email,setEmail] = useState("") 
   const [password,setPassword] = useState("") 
-  let firebase = useContext(FirebaseContext) 
   const createNewUser = ()=>{
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential)=>{
