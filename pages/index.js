@@ -37,7 +37,7 @@ export default function Home() {
     }
   }
   return (
-    <div className="bg-gray-500">
+    <div>
       <button onClick={sendNotification}>clicca</button>
     </div>
   )

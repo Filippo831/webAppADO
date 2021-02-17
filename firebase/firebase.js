@@ -1,4 +1,8 @@
 import firebase from "firebase"
+import {createContext} from "react"
+import "firebase/auth"
+
+const FirebaseContext = createContext({})
 
 const firebaseConfig = {
   apiKey: "AIzaSyBv-esR6Nng741vEBWvcKr8wqMLvHqMRLs",
@@ -9,13 +13,19 @@ const firebaseConfig = {
   appId: "1:484121566637:web:bf1c4cede72cf9210e9524",
   measurementId: "G-3CQ6R6H3BJ"
 };
-export default function firebaseClient() {
+export default function FirebaseClientProvider(props) {
 
   if (!firebase.apps.length) {
-
     firebase.initializeApp(firebaseConfig)
+    return firebase
   }
-}
+  return(
+    <FirebaseContext.Provider value={firebase}>
+      {props.children}
+    </FirebaseContext.Provider>
 
+  )
+}
+export {FirebaseContext}
 
 //messagingInitializer(firebase)
