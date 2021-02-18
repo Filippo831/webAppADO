@@ -43,3 +43,14 @@ export default function Home() {
     </div>
   )
 }
+export async function getServerSideProps(ctx) {
+  let user = false;
+  if (!user) {
+    return{
+      redirect:{
+        destination:"/login",
+        permanent:false,
+      },
+    }
+  } 
+}
