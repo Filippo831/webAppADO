@@ -4,6 +4,6 @@
 [x] se non ha fatto l'accesso indirizzarlo verso /login o /register
   --- ez, bisogna farlo per ogni pagina
 
-[] come caspita funzionano i cookies?? client side authentication
+[] usa localstorage per tenere l'id dell'utente ed evitare che rilogghi ogni volta
 
 

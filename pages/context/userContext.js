@@ -1,12 +1,13 @@
-import {createContext} from 'react';
+import {useState,createContext} from 'react';
 import nookies from "nookies"
 
-const UserContext = createContext({})
+const UserContext = createContext([{}, ()=>{}])
 
 export default function UserContextProvider(props) {
+  const [user, setUser] = useState(undefined)
   console.log(props.cookies)
   return (
-    <UserContext.Provider value={{}}>
+    <UserContext.Provider value={[user, setUser]}>
       {props.children}
     </UserContext.Provider>
   )

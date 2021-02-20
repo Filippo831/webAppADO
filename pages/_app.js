@@ -11,12 +11,12 @@ function MyApp({Component, pageProps, cookies}) {
   console.log(cookies)
 
   return (
-    <div>
+    <div className="min-h-screen text-gray-200 bg-gray-900">
       <FirebaseClientProvider>
         <ChakraProvider>
           <UserContextProvider>
             <Component {...pageProps} />
-</UserContextProvider>
+          </UserContextProvider>
         </ChakraProvider>
       </FirebaseClientProvider>
     </div>
@@ -27,7 +27,7 @@ export async function getServerSideProps(ctx) {
   let cookies = "ciao"
   return {
     props: {
-      cookies:cookies,
+      cookies: cookies,
     }
   }
 }

@@ -21,6 +21,7 @@
     "nookies": "^2.5.2",
     "postcss": "^8.2.6",
     "react": "17.0.1",
+    "react-calendar": "^3.3.1",
     "react-dom": "17.0.1",
     "react-query": "^3.9.2",
     "tailwindcss": "^2.0.3"
