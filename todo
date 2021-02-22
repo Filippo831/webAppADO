@@ -1,5 +1,6 @@
 --- SCALETTA
 [] autenticazione
+  [x] mettere conferma password nella schermata di singup
   [] iscrizione
   [] accesso
   [] salvataggio utente sui cookies

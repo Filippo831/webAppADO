@@ -1,4 +1,6 @@
 import '../styles/globals.css'
+import '../styles/calendar.css'
+import 'react-calendar/dist/Calendar.css'
 import Header from './components/main/head'
 import FirebaseClientProvider from "../firebase/firebase"
 import {ChakraProvider} from "@chakra-ui/react"

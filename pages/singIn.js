@@ -8,6 +8,7 @@ import firebase from "firebase/app"
 export default function SingIn(){
   const [email,setEmail] = useState("") 
   const [password,setPassword] = useState("") 
+  const [confirmPassword,setConfirmPassword] = useState("") 
   const createNewUser = ()=>{
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential)=>{
@@ -25,6 +26,7 @@ export default function SingIn(){
       <Input placeholder="numero di telefono"></Input>
       <Input placeholder="email" onChange={e=> setEmail(e.target.value)}></Input>
       <Input placeholder="password" onChange={e=> setPassword(e.target.value)}></Input>
+      <Input placeholder="conferma password" onChange={e=> setPassword(e.target.value)}></Input>
       <Input placeholder="iban del nonno" ></Input>
       <Button onClick={createNewUser}>submit</Button>
     </div></div>
