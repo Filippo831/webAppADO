@@ -6,4 +6,6 @@
 
 [] usa localstorage per tenere l'id dell'utente ed evitare che rilogghi ogni volta
 
+[] controlla se il database funziona
+
 

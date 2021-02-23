@@ -1,6 +1,7 @@
 import firebase from "firebase/app"
 import {createContext} from "react"
 import "firebase/auth"
+import "firebase/firestore"
 
 const FirebaseContext = createContext({})
 
