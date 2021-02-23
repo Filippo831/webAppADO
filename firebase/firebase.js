@@ -3,29 +3,19 @@ import {createContext} from "react"
 import "firebase/auth"
 import "firebase/firestore"
 
-const FirebaseContext = createContext({})
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBv-esR6Nng741vEBWvcKr8wqMLvHqMRLs",
-  authDomain: "webappado-84845.firebaseapp.com",
-  projectId: "webappado-84845",
-  storageBucket: "webappado-84845.appspot.com",
-  messagingSenderId: "484121566637",
-  appId: "1:484121566637:web:bf1c4cede72cf9210e9524",
-  measurementId: "G-3CQ6R6H3BJ"
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
+  measurementId: process.env.MESAUREMENT_ID 
 };
-export default function FirebaseClientProvider(props) {
 
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig)
-  }
-  return(
-    <FirebaseContext.Provider value={firebase}>
-      {props.children}
-    </FirebaseContext.Provider>
-
-  )
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig)
 }
-export {FirebaseContext}
-
+export default firebase
 //messagingInitializer(firebase)

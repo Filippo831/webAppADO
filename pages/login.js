@@ -1,7 +1,7 @@
 import {useState, useContext} from "react"
 import firebaseClient from "../firebase/firebase"
 import {Input, Button} from "@chakra-ui/react"
-import firebase from "firebase/app"
+import firebase from "../firebase/firebase"
 import UserContext from "./context/userContext"
  
 
@@ -13,7 +13,7 @@ export default function Login(props) {
   const loginUser = () => {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(userCredential => {
-        let user = userCredential.user
+        setUser(userCredential.user)
       })
       .catch((error) => {
         let errorCode = error.code

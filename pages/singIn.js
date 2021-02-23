@@ -3,9 +3,11 @@ import {useContext, useState} from "react"
 import firebaseClient from "../firebase/firebase"
 import {Input, Button} from "@chakra-ui/react"
 import {setCookie} from 'nookies';
-import firebase from "firebase/app"
+import firebase from "../firebase/firebase"
+import {UserContext} from "./context/userContext"
 
 export default function SingIn(){
+  const [user, setUser] = useContext(UserContext)
   const [name,setName] = useState("") 
   const [surname,setSurname] = useState("") 
   const [number,setNumber] = useState("") 
@@ -14,13 +16,14 @@ export default function SingIn(){
   const [password,setPassword] = useState("") 
   const [confirmPassword,setConfirmPassword] = useState("") 
   const createNewUser = ()=>{
-    //firebase.auth().createUserWithEmailAndPassword(email, password)
-      //.then((userCredential)=>{
-        //let user = userCredential.user
-      //}).catch((error) => {
-        //let errorCode = error.code
-        //let errorMassage = error.massage
-      //})
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential)=>{
+        setUser(userCredential.user)
+      }).catch((error) => {
+        let errorCode = error.code
+        let errorMassage = error.massage
+      })
+    console.log("ciao")
     let utenti = firebase.firestore().collection("utenti")
     utenti.add({
       informazioniPersonali: {
