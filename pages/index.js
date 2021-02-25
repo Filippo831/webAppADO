@@ -1,11 +1,15 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import {useState,useEffect} from "react"
+import {useState,useEffect, useContext} from "react"
 import Navbar from "./components/main/navbar/navbar"
 import Calendar from "react-calendar"
+import {UserContext} from "./context/userContext"
+import nookies, {setCookie} from "nookies"
 
-export default function Home() {
+export default function Home(props) {
+  const [user, setUser ] = useContext(UserContext)
    //console.log("ciao")
+  //
   //useEffect(() => {
     //if ('serviceWorker' in navigator) {
       //navigator.serviceWorker.register('/sw.js')
@@ -39,6 +43,7 @@ export default function Home() {
 
     //}
   //}
+  console.log(props.cookies)
   const [value, setValue] = useState(new Date())
   return (
     <div>
@@ -52,7 +57,9 @@ export default function Home() {
   )
 }
 export async function getServerSideProps(ctx) {
-  let user = true;
+  const cookies = nookies.get(ctx)
+   let user = cookies.userId 
+  console.log(user)
   if (!user) {
     return{
       redirect:{
@@ -62,7 +69,9 @@ export async function getServerSideProps(ctx) {
     }
   } else {
     return{
-      props:{}
+      props:{
+        cookies : cookies
+      }
     }
   }
 }

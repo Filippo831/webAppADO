@@ -4,6 +4,7 @@ import {Input, Button} from "@chakra-ui/react"
 import firebase from "../firebase/firebase"
 import {UserContext} from "./context/userContext"
 import {useRouter} from "next/router"
+import {setCookie} from "nookies"
  
 
 export default function Login(props) {
@@ -21,6 +22,8 @@ export default function Login(props) {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(userCredential => {
         setUser(userCredential.user)
+        console.log(userCredential.user.uid)
+        setCookie(null, "userId", userCredential.user.uid, null)
         router.push("/")
       })
       .catch((error) => {

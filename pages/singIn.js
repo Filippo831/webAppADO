@@ -28,6 +28,7 @@ export default function SingIn() {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         setUser(userCredential.user)
+        setCookie(null, userId, userContext.user.uid, null)
         router.push("/")
       }).catch((error) => {
         let errorCode = error.code
