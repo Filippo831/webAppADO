@@ -4,8 +4,10 @@
 [x] se non ha fatto l'accesso indirizzarlo verso /login o /register
   --- ez, bisogna farlo per ogni pagina
 
+[x] controlla se il database funziona
+
+
 [] usa localstorage per tenere l'id dell'utente ed evitare che rilogghi ogni volta
 
-[] controlla se il database funziona
 
 

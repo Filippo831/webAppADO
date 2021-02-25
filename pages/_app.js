@@ -22,13 +22,7 @@ function MyApp({Component, pageProps, cookies}) {
   )
 }
 export async function getServerSideProps(ctx) {
-  //const cookies = nookies.get(ctx)
-  let cookies = "ciao"
-  return {
-    props: {
-      cookies: cookies,
-    }
-  }
+  return
 }
 
 export default MyApp
