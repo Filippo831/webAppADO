@@ -5,9 +5,12 @@ import Navbar from "./components/main/navbar/navbar"
 import Calendar from "react-calendar"
 import {UserContext} from "./context/userContext"
 import nookies, {setCookie} from "nookies"
+import firebase from "../firebase/firebase"
 
 export default function Home(props) {
   const [user, setUser ] = useContext(UserContext)
+  firebase.auth().signInWithCustomToken(props.cookies.user)
+
    //console.log("ciao")
   //
   //useEffect(() => {

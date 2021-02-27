@@ -7,7 +7,9 @@
 [x] controlla se il database funziona
 
 
-[] usa localstorage per tenere l'id dell'utente ed evitare che rilogghi ogni volta
+[x] usa cookies per tenere l'id dell'utente ed evitare che rilogghi ogni volta
+
+[x] autentica con l'id all'avvio "non so se funziona"
 
 
 
