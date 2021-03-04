@@ -1,0 +1,25 @@
+import {Input, Button, NumberInput, NumberInputField} from "@chakra-ui/react"
+
+export default function NewEvent() {
+  return(
+    <div className="h-screen">
+    <div className="flex flex-col justify-between pt-10 mx-10 h-3/5">
+      <div>
+      <NumberInput default={1} min={1} max={31}>
+        <NumberInputField></NumberInputField>
+      </NumberInput>
+      <NumberInput default={1} min={1} max={12}>
+        <NumberInputField></NumberInputField>
+      </NumberInput>
+      <NumberInput default={2021}>
+        <NumberInputField></NumberInputField>
+      </NumberInput>
+
+      </div>
+      <Input placeholder="titolo"></Input>
+      <Input placeholder="categoria"></Input>
+      <Input placeholder="descrizione"></Input>
+    </div>
+</div>
+  )
+}

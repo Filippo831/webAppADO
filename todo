@@ -19,3 +19,9 @@
     /*[] galleria*/
   [] aggiungi calendario con segnati gli eventi
 
+[] pagina eventi
+  [] data
+  [] titolo 
+  [] categoria 
+  [] descrizione
+  

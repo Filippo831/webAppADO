@@ -9,7 +9,6 @@ import firebase from "../firebase/firebase"
 
 export default function Home(props) {
   const [user, setUser ] = useContext(UserContext)
-  firebase.auth().signInWithCustomToken(props.cookies.user)
 
    //console.log("ciao")
   //
@@ -46,7 +45,6 @@ export default function Home(props) {
 
     //}
   //}
-  console.log(props.cookies)
   const [value, setValue] = useState(new Date())
   return (
     <div>
