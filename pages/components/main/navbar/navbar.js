@@ -1,4 +1,4 @@
-import {useRef} from "react"
+import {useRef, useContext} from "react"
 import {
   Drawer,
   DrawerBody,
@@ -11,8 +11,11 @@ import {
   Button
 } from "@chakra-ui/react"
 import {Menu} from "@material-ui/icons"
+import {UserContext} from "../../../context/userContext"
+
 
 export default function Navbar() {
+  const [user, setUser ] = useContext(UserContext)
   const {isOpen, onOpen, onClose} = useDisclosure()
   const buttonRef = useRef()
   return (
@@ -51,7 +54,7 @@ export default function Navbar() {
             </DrawerBody>
             {/* FOOTER */}
             <DrawerFooter>
-              login logout
+              {user ? <div>ciao</div>:<div>not ciao</div>}
             </DrawerFooter>
           </DrawerContent>
         </DrawerOverlay>

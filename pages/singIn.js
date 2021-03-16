@@ -5,7 +5,7 @@ import {Input, Button} from "@chakra-ui/react"
 import {setCookie} from 'nookies';
 import firebase from "../firebase/firebase"
 import {UserContext} from "./context/userContext"
-import {useContext} from "next/router"
+import {useRouter} from "next/router"
 
 export default function SingIn() {
   // user context
@@ -28,8 +28,23 @@ export default function SingIn() {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         setUser(userCredential.user)
-        setCookie(null, userId, userContext.user.uid, null)
         router.push("/")
+        let utenti = firebase.firestore().collection("utenti")
+        utenti.doc(userCredential.user.uid).set({
+          informazioniPersonali: {
+            nome: name,
+            età: "12",
+            cognome: surname,
+            numeroTelefono: number,
+            email: email
+          },
+          gruppo: 3,
+          autorizzazioni: {
+            animato: false,
+            animatore: true,
+            gestione: true
+          }
+        })
       }).catch((error) => {
         let errorCode = error.code
         let errorMassage = error.massage
@@ -37,22 +52,6 @@ export default function SingIn() {
     console.log("ciao")
 
     // google firestore
-    let utenti = firebase.firestore().collection("utenti")
-    utenti.add({
-      informazioniPersonali: {
-        nome: name,
-        età: "12",
-        cognome: surname,
-        numeroTelefono: number,
-        email: email
-      },
-      gruppo: 3,
-      autorizzazioni: {
-        animato: false,
-        animatore: true,
-        gestione: true
-      }
-    })
   }
 
   return (
