@@ -9,6 +9,8 @@
 
 [x] usa cookies per tenere l'id dell'utente ed evitare che rilogghi ogni volta
 
+[] fare il redirect da index se non è autenticato con useRouter 
+
 [ ] autentica con l'id all'avvio "non so se funziona"
 
 
