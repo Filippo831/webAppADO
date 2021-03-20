@@ -5,26 +5,31 @@ import firebase from "../firebase/firebase"
 import {UserContext} from "./context/userContext"
 import {useRouter} from "next/router"
 import {setCookie} from "nookies"
- 
+
 
 export default function Login(props) {
 
   // user context
-  const [user,setUser] = useContext(UserContext)
-  
+  const [user, setUser] = useContext(UserContext)
+
   const router = useRouter()
 
   // credential to login
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const loginUser = () => {
+
+  const loginUser = async () => {
     console.log(process.env)
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(userCredential => {
         setUser(userCredential.user)
         console.log(userCredential.user.uid)
-        setCookie(null, "userId", userCredential.user.uid, null)
-        router.push("/")
+        return userCredential.getIdToken().then(idToken => {
+          setCookie(null, "userId", idToken, null)
+          router.push("/")
+        })
+
+
       })
       .catch((error) => {
         let errorCode = error.code

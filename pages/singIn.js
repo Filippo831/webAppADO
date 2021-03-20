@@ -22,13 +22,12 @@ export default function SingIn() {
   const [confirmPassword, setConfirmPassword] = useState("")
 
   // when button pressed create a new user and sync to database
-  const createNewUser = () => {
+  const createNewUser = async () => {
 
     // google authentication
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         setUser(userCredential.user)
-        router.push("/")
         let utenti = firebase.firestore().collection("utenti")
         utenti.doc(userCredential.user.uid).set({
           informazioniPersonali: {
@@ -44,6 +43,11 @@ export default function SingIn() {
             animatore: true,
             gestione: true
           }
+        })
+        
+        return userCredential.getIdToken().then(idToken => {
+          setCookie(null, "userId", idToken, null)
+          router.push("/")
         })
       }).catch((error) => {
         let errorCode = error.code
